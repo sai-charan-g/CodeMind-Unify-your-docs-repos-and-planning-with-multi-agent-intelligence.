@@ -220,7 +220,7 @@ export default function ChatPage() {
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center animate-float">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">DevPilot AI Workspace</h2>
+              <h2 className="text-2xl font-bold mb-2">CodeMind Workspace</h2>
               <p className="text-[var(--muted)] mb-8 max-w-md">
                 Ask me to review code, search documentation, analyze PRs, plan tasks, or anything engineering-related.
               </p>
@@ -308,7 +308,7 @@ export default function ChatPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask DevPilot AI anything..."
+              placeholder="Ask CodeMind anything..."
               rows={1}
               className="input flex-1 resize-none min-h-[44px] max-h-[200px] py-3"
               style={{ height: "auto" }}

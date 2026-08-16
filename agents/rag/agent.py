@@ -1,4 +1,4 @@
-"""DevPilot AI — RAG Agent: Retrieves context from knowledge base and generates answers with citations."""
+"""CodeMind — RAG Agent: Retrieves context from knowledge base and generates answers with citations."""
 
 from typing import Any
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -7,7 +7,7 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-RAG_SYSTEM_PROMPT = """You are a RAG (Retrieval-Augmented Generation) agent in DevPilot AI.
+RAG_SYSTEM_PROMPT = """You are a RAG (Retrieval-Augmented Generation) agent in CodeMind.
 You answer questions using context retrieved from the user's uploaded documents.
 
 Rules:

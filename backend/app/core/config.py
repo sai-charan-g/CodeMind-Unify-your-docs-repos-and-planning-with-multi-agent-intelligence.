@@ -1,5 +1,5 @@
 """
-DevPilot AI — Application Configuration
+CodeMind — Application Configuration
 
 Uses pydantic-settings to load configuration from environment variables.
 All sensitive values default to empty strings and MUST be set in .env.
@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     )
 
     # --- General ---
-    app_name: str = "DevPilot AI"
+    app_name: str = "CodeMind"
     app_env: str = "development"
     debug: bool = True
 
@@ -33,8 +33,8 @@ class Settings(BaseSettings):
     backend_cors_origins: List[str] = ["http://localhost:3000"]
 
     # --- Database ---
-    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/devpilot"
-    database_url_sync: str = "postgresql://postgres:postgres@localhost:5432/devpilot"
+    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/codemind"
+    database_url_sync: str = "postgresql://postgres:postgres@localhost:5432/codemind"
 
     # --- Redis ---
     redis_url: str = "redis://localhost:6379/0"

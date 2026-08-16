@@ -1,1 +1,1 @@
-"""DevPilot AI — Planner package."""
+"""CodeMind — Planner package."""

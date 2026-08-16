@@ -1,1 +1,1 @@
-"""DevPilot AI — Database module."""
+"""CodeMind — Database module."""

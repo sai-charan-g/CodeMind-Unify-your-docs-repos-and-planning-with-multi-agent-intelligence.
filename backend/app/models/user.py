@@ -1,5 +1,5 @@
 """
-DevPilot AI — User Model
+CodeMind — User Model
 
 Stores user accounts, credentials, and GitHub OAuth tokens.
 """

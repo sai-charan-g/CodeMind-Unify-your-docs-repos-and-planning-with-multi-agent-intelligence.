@@ -45,7 +45,7 @@ export function Sidebar() {
         </div>
         {sidebarOpen && (
           <span className="text-lg font-bold gradient-text animate-fade-in">
-            DevPilot AI
+            CodeMind
           </span>
         )}
         <button

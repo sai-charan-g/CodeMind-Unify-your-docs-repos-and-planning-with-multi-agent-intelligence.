@@ -1,1 +1,1 @@
-"""DevPilot AI — Core module."""
+"""CodeMind — Core module."""

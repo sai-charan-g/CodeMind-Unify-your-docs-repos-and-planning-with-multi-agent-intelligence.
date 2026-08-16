@@ -1,5 +1,5 @@
 """
-DevPilot AI — Security Utilities
+CodeMind — Security Utilities
 
 Handles JWT token creation/validation, password hashing, and GitHub token encryption.
 """

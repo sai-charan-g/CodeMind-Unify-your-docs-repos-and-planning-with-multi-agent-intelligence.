@@ -1,1 +1,1 @@
-"""DevPilot AI — GitHub agent package."""
+"""CodeMind — GitHub agent package."""

@@ -1,5 +1,5 @@
 # ============================================
-# DevPilot AI — Backend Dependencies
+# CodeMind — Backend Dependencies
 # ============================================
 
 # --- Web Framework ---

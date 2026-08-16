@@ -1,5 +1,5 @@
 """
-DevPilot AI — Knowledge Base Models
+CodeMind — Knowledge Base Models
 
 KnowledgeDocument tracks uploaded files (PDF, MD, etc.).
 KnowledgeChunk stores the chunked text with references to ChromaDB vectors.

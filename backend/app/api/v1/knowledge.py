@@ -1,5 +1,5 @@
 """
-DevPilot AI — Knowledge Base API Routes
+CodeMind — Knowledge Base API Routes
 
 Handles document upload, listing, and deletion.
 Document processing (chunking + embedding) is triggered asynchronously.

@@ -1,5 +1,5 @@
 """
-DevPilot AI — Conversation & Message Models
+CodeMind — Conversation & Message Models
 
 Conversations hold a thread of messages between the user and AI agents.
 Each message records the role (user/assistant/system), content, and token usage.

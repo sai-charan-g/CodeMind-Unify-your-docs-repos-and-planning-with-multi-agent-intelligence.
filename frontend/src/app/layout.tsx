@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DevPilot AI — Multi-Agent Engineering Workspace",
+  title: "CodeMind — Multi-Agent Engineering Workspace",
   description:
     "Production-ready multi-agent AI workspace for code review, RAG documentation search, debugging, test generation, and more.",
   keywords: ["AI", "engineering", "code review", "RAG", "multi-agent"],

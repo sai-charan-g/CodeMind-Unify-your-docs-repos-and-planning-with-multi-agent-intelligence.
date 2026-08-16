@@ -1,1 +1,1 @@
-"""DevPilot AI — App package."""
+"""CodeMind — App package."""

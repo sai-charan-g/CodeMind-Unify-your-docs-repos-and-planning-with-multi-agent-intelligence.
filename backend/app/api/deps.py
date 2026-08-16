@@ -1,5 +1,5 @@
 """
-DevPilot AI — API Dependencies
+CodeMind — API Dependencies
 
 Shared FastAPI dependencies for authentication, database sessions, etc.
 These are injected into route handlers via Depends().

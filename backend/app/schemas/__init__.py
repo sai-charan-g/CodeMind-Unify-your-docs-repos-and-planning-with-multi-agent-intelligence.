@@ -1,4 +1,4 @@
-"""DevPilot AI — Schemas package."""
+"""CodeMind — Schemas package."""
 
 from app.schemas.auth import (
     LoginRequest,

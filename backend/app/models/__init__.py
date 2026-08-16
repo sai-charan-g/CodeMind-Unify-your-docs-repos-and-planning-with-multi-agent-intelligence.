@@ -1,5 +1,5 @@
 """
-DevPilot AI — Models Package
+CodeMind — Models Package
 
 Imports all ORM models so Alembic can discover them for auto-generation.
 """

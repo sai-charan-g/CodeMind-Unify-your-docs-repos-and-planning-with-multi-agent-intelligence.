@@ -1,5 +1,5 @@
 """
-DevPilot AI — GitHub API Routes
+CodeMind — GitHub API Routes
 
 Provides endpoints to fetch user repositories, PRs, and repo details
 using the authenticated user's GitHub access token.

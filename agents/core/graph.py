@@ -1,5 +1,5 @@
 """
-DevPilot AI — Main Agent Graph
+CodeMind — Main Agent Graph
 
 Builds the LangGraph StateGraph that orchestrates all agents.
 Provides the invoke_agent() async generator for SSE streaming.
@@ -30,7 +30,7 @@ async def general_node(state: dict) -> dict:
     """General conversation node when no specialist is needed."""
     llm = _get_llm()
     system_prompt = (
-        "You are DevPilot AI, a helpful engineering assistant. "
+        "You are CodeMind, a helpful engineering assistant. "
         "Provide clear, concise, and technically accurate responses. "
         "Use markdown formatting when appropriate."
     )

@@ -1,15 +1,15 @@
-# DevPilot AI — Docker Compose (Development)
+# CodeMind — Docker Compose (Development)
 # Usage: docker compose -f docker/docker-compose.yml up -d
 
 services:
   # --- PostgreSQL ---
   postgres:
     image: postgres:16-alpine
-    container_name: devpilot-postgres
+    container_name: codemind-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: devpilot
+      POSTGRES_DB: codemind
     ports:
       - "5432:5432"
     volumes:
@@ -23,7 +23,7 @@ services:
   # --- Redis ---
   redis:
     image: redis:7-alpine
-    container_name: devpilot-redis
+    container_name: codemind-redis
     ports:
       - "6379:6379"
     volumes:
@@ -37,7 +37,7 @@ services:
   # --- ChromaDB ---
   chromadb:
     image: chromadb/chroma:latest
-    container_name: devpilot-chromadb
+    container_name: codemind-chromadb
     ports:
       - "8100:8000"
     volumes:

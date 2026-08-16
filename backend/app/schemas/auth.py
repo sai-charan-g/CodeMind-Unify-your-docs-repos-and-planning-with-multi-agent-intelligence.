@@ -1,5 +1,5 @@
 """
-DevPilot AI — Auth Schemas
+CodeMind — Auth Schemas
 
 Request/response models for authentication endpoints.
 """

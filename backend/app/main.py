@@ -1,5 +1,5 @@
 """
-DevPilot AI — FastAPI Application Factory
+CodeMind — FastAPI Application Factory
 
 Creates and configures the main FastAPI application with all routers,
 middleware, CORS, rate limiting, and exception handlers.

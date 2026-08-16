@@ -1,1 +1,1 @@
-"""DevPilot AI — RAG package."""
+"""CodeMind — RAG package."""

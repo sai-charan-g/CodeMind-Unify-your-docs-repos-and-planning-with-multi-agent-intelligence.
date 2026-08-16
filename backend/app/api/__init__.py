@@ -1,1 +1,1 @@
-"""DevPilot AI — API package."""
+"""CodeMind — API package."""

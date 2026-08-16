@@ -1,5 +1,5 @@
 """
-DevPilot AI — Chat Schemas
+CodeMind — Chat Schemas
 
 Request/response models for conversations and messages.
 """

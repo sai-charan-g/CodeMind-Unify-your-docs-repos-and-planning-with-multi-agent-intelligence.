@@ -1,5 +1,5 @@
 """
-DevPilot AI — Database Base Model
+CodeMind — Database Base Model
 
 Provides the declarative base class and common mixins
 used by all SQLAlchemy ORM models.

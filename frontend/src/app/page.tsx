@@ -38,7 +38,7 @@ export default function LandingPage() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)] flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold gradient-text">DevPilot AI</span>
+            <span className="text-xl font-bold gradient-text">CodeMind</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/login" className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors">
@@ -134,7 +134,7 @@ export default function LandingPage() {
       <footer className="border-t border-[var(--border)] py-8">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between text-sm text-[var(--muted)]">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[var(--accent)]" /> DevPilot AI
+            <Sparkles className="w-4 h-4 text-[var(--accent)]" /> CodeMind
           </div>
           <p>Built with FastAPI, LangGraph, Next.js & Gemini</p>
         </div>

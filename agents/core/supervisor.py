@@ -1,5 +1,5 @@
 """
-DevPilot AI — Supervisor Node
+CodeMind — Supervisor Node
 
 The supervisor classifies user intent and routes to the appropriate
 specialist agent. It serves as the entry point of the agent graph.
@@ -10,7 +10,7 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-SUPERVISOR_SYSTEM_PROMPT = """You are the DevPilot AI Supervisor. Your job is to classify user requests
+SUPERVISOR_SYSTEM_PROMPT = """You are the CodeMind Supervisor. Your job is to classify user requests
 and route them to the correct specialist agent.
 
 Classify the user's intent into exactly ONE of these categories:

@@ -1,5 +1,5 @@
 """
-DevPilot AI — Async Database Session
+CodeMind — Async Database Session
 
 Configures the async SQLAlchemy engine and provides
 a dependency-injectable session factory for FastAPI.

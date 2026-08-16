@@ -1,4 +1,4 @@
-"""DevPilot AI — GitHub Agent: Analyzes repos and PRs using LLM."""
+"""CodeMind — GitHub Agent: Analyzes repos and PRs using LLM."""
 
 import httpx
 from typing import Any
@@ -9,7 +9,7 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-GITHUB_SYSTEM_PROMPT = """You are a GitHub Analysis agent in DevPilot AI.
+GITHUB_SYSTEM_PROMPT = """You are a GitHub Analysis agent in CodeMind.
 You help developers understand their repositories and pull requests.
 
 When analyzing code or PRs:

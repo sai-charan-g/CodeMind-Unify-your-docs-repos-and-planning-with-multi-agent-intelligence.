@@ -1,4 +1,4 @@
-"""DevPilot AI — Planner Agent: Decomposes complex requests into subtasks."""
+"""CodeMind — Planner Agent: Decomposes complex requests into subtasks."""
 
 from typing import Any
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -6,7 +6,7 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-PLANNER_SYSTEM_PROMPT = """You are a Task Planner agent in DevPilot AI.
+PLANNER_SYSTEM_PROMPT = """You are a Task Planner agent in CodeMind.
 Your role is to break down complex user requests into clear, sequential, executable tasks.
 
 For each task, output:

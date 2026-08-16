@@ -1,5 +1,5 @@
 """
-DevPilot AI — Project Schemas
+CodeMind — Project Schemas
 
 Request/response models for project management.
 """

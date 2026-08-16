@@ -1,5 +1,5 @@
 """
-DevPilot AI — Chat API Routes
+CodeMind — Chat API Routes
 
 Handles conversation CRUD and message sending with SSE streaming.
 """

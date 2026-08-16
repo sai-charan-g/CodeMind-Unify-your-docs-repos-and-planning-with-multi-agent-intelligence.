@@ -1,5 +1,5 @@
 """
-DevPilot AI — Auth API Routes
+CodeMind — Auth API Routes
 
 Handles user registration, login, token refresh, and GitHub OAuth.
 """

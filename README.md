@@ -1,4 +1,4 @@
-# 🚀 DevPilot AI — Multi-Agent Engineering Workspace
+# 🚀 CodeMind — Multi-Agent Engineering Workspace
 
 > A production-ready multi-agent AI engineering workspace that helps software developers understand codebases, review pull requests, search technical documentation using RAG, and plan complex tasks.
 
@@ -49,8 +49,8 @@ Frontend (Next.js 15) ──→ FastAPI Backend ──→ LangGraph Agents ─�
 
 ### 1. Clone and configure
 ```bash
-git clone https://github.com/yourusername/devpilot-ai.git
-cd devpilot-ai
+git clone https://github.com/yourusername/codemind.git
+cd codemind
 cp .env.example .env
 # Edit .env with your API keys
 ```
@@ -85,7 +85,7 @@ npm run dev
 ## Project Structure
 
 ```
-devpilot-ai/
+codemind/
 ├── frontend/          Next.js 15 App
 ├── backend/           FastAPI Backend
 │   ├── app/

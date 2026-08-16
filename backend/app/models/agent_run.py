@@ -1,5 +1,5 @@
 """
-DevPilot AI — Agent Run Model
+CodeMind — Agent Run Model
 
 Tracks every agent invocation for analytics, debugging, and cost tracking.
 """

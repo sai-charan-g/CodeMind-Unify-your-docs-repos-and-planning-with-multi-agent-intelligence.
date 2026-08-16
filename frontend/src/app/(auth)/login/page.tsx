@@ -50,7 +50,7 @@ export default function LoginPage() {
             <Sparkles className="w-7 h-7 text-white" />
           </div>
           <h1 className="text-3xl font-bold gradient-text">Welcome back</h1>
-          <p className="text-[var(--muted)] mt-2">Sign in to your DevPilot AI workspace</p>
+          <p className="text-[var(--muted)] mt-2">Sign in to your CodeMind workspace</p>
         </div>
 
         {/* Form */}

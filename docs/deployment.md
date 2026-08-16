@@ -1,6 +1,6 @@
-# DevPilot AI — Deployment Guide
+# CodeMind — Deployment Guide
 
-This document outlines the step-by-step process for deploying the DevPilot AI application to production. The architecture consists of a Next.js frontend, a FastAPI backend, and several data services (PostgreSQL, Redis, ChromaDB).
+This document outlines the step-by-step process for deploying the CodeMind application to production. The architecture consists of a Next.js frontend, a FastAPI backend, and several data services (PostgreSQL, Redis, ChromaDB).
 
 ## Architecture Overview
 
@@ -16,10 +16,10 @@ Before deploying, ensure you have the following secrets ready.
 
 ### Backend (`.env`)
 ```env
-APP_NAME=DevPilot AI
+APP_NAME=CodeMind
 APP_ENV=production
 DEBUG=false
-BACKEND_CORS_ORIGINS=["https://devpilot-ai.vercel.app"]
+BACKEND_CORS_ORIGINS=["https://codemind.vercel.app"]
 
 DATABASE_URL=postgresql+asyncpg://user:pass@host/dbname
 DATABASE_URL_SYNC=postgresql://user:pass@host/dbname

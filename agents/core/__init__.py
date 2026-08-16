@@ -1,1 +1,1 @@
-"""DevPilot AI — Agents core package."""
+"""CodeMind — Agents core package."""

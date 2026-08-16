@@ -1,5 +1,5 @@
 """
-DevPilot AI — Custom Exception Handlers
+CodeMind — Custom Exception Handlers
 
 Centralized exception classes and FastAPI exception handlers
 for consistent error responses across the API.
@@ -12,8 +12,8 @@ from loguru import logger
 
 # --- Custom Exception Classes ---
 
-class DevPilotException(Exception):
-    """Base exception for all DevPilot errors."""
+class CodeMindException(Exception):
+    """Base exception for all CodeMind errors."""
 
     def __init__(self, message: str, status_code: int = 500):
         self.message = message
@@ -21,21 +21,21 @@ class DevPilotException(Exception):
         super().__init__(self.message)
 
 
-class AuthenticationError(DevPilotException):
+class AuthenticationError(CodeMindException):
     """Raised when authentication fails."""
 
     def __init__(self, message: str = "Authentication failed"):
         super().__init__(message=message, status_code=status.HTTP_401_UNAUTHORIZED)
 
 
-class AuthorizationError(DevPilotException):
+class AuthorizationError(CodeMindException):
     """Raised when user lacks required permissions."""
 
     def __init__(self, message: str = "Insufficient permissions"):
         super().__init__(message=message, status_code=status.HTTP_403_FORBIDDEN)
 
 
-class NotFoundError(DevPilotException):
+class NotFoundError(CodeMindException):
     """Raised when a requested resource is not found."""
 
     def __init__(self, resource: str = "Resource", identifier: str = ""):
@@ -45,14 +45,14 @@ class NotFoundError(DevPilotException):
         super().__init__(message=message, status_code=status.HTTP_404_NOT_FOUND)
 
 
-class ConflictError(DevPilotException):
+class ConflictError(CodeMindException):
     """Raised when a resource already exists."""
 
     def __init__(self, message: str = "Resource already exists"):
         super().__init__(message=message, status_code=status.HTTP_409_CONFLICT)
 
 
-class ValidationError(DevPilotException):
+class ValidationError(CodeMindException):
     """Raised for business logic validation failures."""
 
     def __init__(self, message: str = "Validation failed"):
@@ -61,7 +61,7 @@ class ValidationError(DevPilotException):
         )
 
 
-class RateLimitError(DevPilotException):
+class RateLimitError(CodeMindException):
     """Raised when rate limit is exceeded."""
 
     def __init__(self, message: str = "Rate limit exceeded. Please try again later."):
@@ -70,7 +70,7 @@ class RateLimitError(DevPilotException):
         )
 
 
-class ExternalServiceError(DevPilotException):
+class ExternalServiceError(CodeMindException):
     """Raised when an external service (GitHub, Gemini) fails."""
 
     def __init__(self, service: str, message: str = ""):
@@ -87,12 +87,12 @@ class ExternalServiceError(DevPilotException):
 def register_exception_handlers(app: FastAPI) -> None:
     """Register all custom exception handlers with the FastAPI app."""
 
-    @app.exception_handler(DevPilotException)
-    async def devpilot_exception_handler(
-        request: Request, exc: DevPilotException
+    @app.exception_handler(CodeMindException)
+    async def codemind_exception_handler(
+        request: Request, exc: CodeMindException
     ) -> JSONResponse:
         logger.warning(
-            f"DevPilotException: {exc.status_code} — {exc.message} | "
+            f"CodeMindException: {exc.status_code} — {exc.message} | "
             f"path={request.url.path}"
         )
         return JSONResponse(

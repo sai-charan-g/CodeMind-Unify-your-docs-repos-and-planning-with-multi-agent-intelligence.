@@ -1,5 +1,5 @@
 """
-DevPilot AI — Knowledge Base Schemas
+CodeMind — Knowledge Base Schemas
 
 Request/response models for document management.
 """

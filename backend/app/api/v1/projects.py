@@ -1,4 +1,4 @@
-"""DevPilot AI — Projects API Routes"""
+"""CodeMind — Projects API Routes"""
 
 import uuid
 from fastapi import APIRouter, Depends

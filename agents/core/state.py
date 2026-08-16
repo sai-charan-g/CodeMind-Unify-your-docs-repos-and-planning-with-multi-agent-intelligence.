@@ -1,5 +1,5 @@
 """
-DevPilot AI — Agent State Schema
+CodeMind — Agent State Schema
 
 Defines the shared state that flows through the LangGraph graph.
 All agent nodes read from and write to this state.

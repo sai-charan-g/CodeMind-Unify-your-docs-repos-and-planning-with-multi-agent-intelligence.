@@ -1,4 +1,4 @@
-"""DevPilot AI — ChromaDB Retriever: Manages vector storage and semantic search."""
+"""CodeMind — ChromaDB Retriever: Manages vector storage and semantic search."""
 
 import chromadb
 from loguru import logger
@@ -16,7 +16,7 @@ def _get_collection():
     if _collection is None:
         _client = chromadb.HttpClient(host=settings.chroma_host, port=settings.chroma_port)
         _collection = _client.get_or_create_collection(
-            name="devpilot_knowledge",
+            name="codemind_knowledge",
             metadata={"hnsw:space": "cosine"},
         )
     return _collection

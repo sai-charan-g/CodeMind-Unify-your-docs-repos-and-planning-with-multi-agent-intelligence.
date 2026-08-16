@@ -1,5 +1,5 @@
 """
-DevPilot AI — Project Model
+CodeMind — Project Model
 
 Projects group conversations, knowledge documents, and GitHub repos
 under a single logical workspace.

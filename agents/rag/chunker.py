@@ -1,4 +1,4 @@
-"""DevPilot AI — Document Chunker: Splits documents into chunks for embedding."""
+"""CodeMind — Document Chunker: Splits documents into chunks for embedding."""
 
 import os
 from pathlib import Path
