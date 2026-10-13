@@ -61,7 +61,7 @@ jobs:
         CHROMA_PORT: 8100
         JWT_SECRET_KEY: test_secret_key
         JWT_ALGORITHM: HS256
-        ENCRYPTION_KEY: VGVzdEVuY3J5cHRpb25LZXk=
+        ENCRYPTION_KEY: wxzOkxTBzmIlqDyrcayjzF1pBWrv4mQ3NGIR4kaKFFs=
       run: |
         alembic upgrade head
         pytest
@@ -81,7 +81,7 @@ jobs:
         
     - name: Install dependencies
       working-directory: ./frontend
-      run: npm ci
+      run: npm install
       
     - name: Build Next.js
       working-directory: ./frontend
