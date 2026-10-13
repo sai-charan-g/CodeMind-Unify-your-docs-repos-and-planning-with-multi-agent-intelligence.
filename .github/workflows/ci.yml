@@ -62,6 +62,8 @@ jobs:
         JWT_SECRET_KEY: test_secret_key
         JWT_ALGORITHM: HS256
         ENCRYPTION_KEY: wxzOkxTBzmIlqDyrcayjzF1pBWrv4mQ3NGIR4kaKFFs=
+        GOOGLE_API_KEY: AIzaSy_dummy_key_for_testing
+        GEMINI_API_KEY: AIzaSy_dummy_key_for_testing
       run: |
         alembic upgrade head
         pytest

@@ -100,18 +100,32 @@ async def get_pull_request_files(owner: str, repo: str, pull_number: int) -> lis
 def _get_llm():
     return ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
-        google_api_key=settings.google_api_key,
+        google_api_key=settings.google_api_key or "AIzaSy_dummy_key_for_testing",
         temperature=0,
         streaming=True,
     )
 
 
-# Create the React Agent for GitHub
-github_agent = create_react_agent(
-    _get_llm(),
-    tools=[get_github_repo, list_repo_pull_requests, get_pull_request, get_pull_request_files],
-    state_modifier=GITHUB_SYSTEM_PROMPT,
-)
+_github_agent = None
+
+
+def get_github_agent():
+    global _github_agent
+    if _github_agent is None:
+        _github_agent = create_react_agent(
+            _get_llm(),
+            tools=[get_github_repo, list_repo_pull_requests, get_pull_request, get_pull_request_files],
+            state_modifier=GITHUB_SYSTEM_PROMPT,
+        )
+    return _github_agent
+
+
+class _LazyGithubAgent:
+    def __getattr__(self, name: str) -> Any:
+        return getattr(get_github_agent(), name)
+
+
+github_agent = _LazyGithubAgent()
 
 
 async def _get_user_token(user_id: str | None) -> str | None:

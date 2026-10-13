@@ -8,6 +8,10 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
+import os
+os.environ.setdefault("GOOGLE_API_KEY", "AIzaSy_dummy_key_for_testing")
+os.environ.setdefault("GEMINI_API_KEY", "AIzaSy_dummy_key_for_testing")
+os.environ.setdefault("ENCRYPTION_KEY", "wxzOkxTBzmIlqDyrcayjzF1pBWrv4mQ3NGIR4kaKFFs=")
 
 import pytest
 import pytest_asyncio

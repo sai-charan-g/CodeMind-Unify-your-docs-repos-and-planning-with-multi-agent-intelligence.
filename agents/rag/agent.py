@@ -23,7 +23,7 @@ Context:
 def _get_llm():
     return ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
-        google_api_key=settings.google_api_key,
+        google_api_key=settings.google_api_key or "AIzaSy_dummy_key_for_testing",
         temperature=0,
         streaming=True,
     )

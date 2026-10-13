@@ -26,7 +26,7 @@ async def classify_intent(user_message: str) -> str:
     """Use LLM to classify the user's intent into an agent category."""
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
-        google_api_key=settings.google_api_key,
+        google_api_key=settings.google_api_key or "AIzaSy_dummy_key_for_testing",
         temperature=0,
     )
 
