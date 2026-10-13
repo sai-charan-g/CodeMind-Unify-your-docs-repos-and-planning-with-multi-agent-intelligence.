@@ -1,8 +1,20 @@
+import sys
+from pathlib import Path
+
+# Add project root and backend dir to sys.path
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
 import pytest
 import pytest_asyncio
-from httpx import AsyncClient
+from httpx import ASGITransport, AsyncClient
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
-from app.db.session import Base, get_db
+from app.db.base import Base
+from app.db.session import get_db
 from app.main import app
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
@@ -30,16 +42,8 @@ async def client(db_session):
 
     app.dependency_overrides[get_db] = override_get_db
     
-    # We use ASGITransport implicitly or provide transport=ASGITransport(app=app)
-    async with AsyncClient(app=app, base_url="http://testserver") as test_client:
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://testserver") as test_client:
         yield test_client
         
     app.dependency_overrides.clear()
-
-@pytest.fixture
-def mock_gemini(mocker):
-    return mocker.patch("app.api.v1.chat.chat_agent.arun", return_value={"output": "Mocked LLM response", "messages": []})
-
-@pytest.fixture
-def mock_github(mocker):
-    return mocker.patch("app.services.github_service.GitHubService.get_user_repos", return_value=[{"id": 1, "name": "mock-repo", "full_name": "user/mock-repo"}])

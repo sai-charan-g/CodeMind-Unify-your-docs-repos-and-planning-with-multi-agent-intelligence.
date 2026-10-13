@@ -130,6 +130,10 @@ async def send_message(
     if not conversation:
         raise NotFoundError("Conversation", str(conversation_id))
 
+    user_uuid = current_user.id
+    user_id_str = str(user_uuid)
+    conv_agent_type = conversation.agent_type
+
     # Save user message
     user_message = Message(
         conversation_id=conversation_id,
@@ -149,8 +153,8 @@ async def send_message(
             async for event in invoke_agent(
                 message=body.content,
                 conversation_id=str(conversation_id),
-                user_id=str(current_user.id),
-                agent_type=conversation.agent_type,
+                user_id=user_id_str,
+                agent_type=conv_agent_type,
             ):
                 if event["type"] == "token":
                     full_response += event["content"]
@@ -164,14 +168,27 @@ async def send_message(
                         "data": json.dumps(event["data"]),
                     }
 
-            # Save complete assistant message
-            async with get_db().__anext__() as save_db:
+            # Save complete assistant message and agent run
+            from app.db.session import async_session_factory
+            from app.models.agent_run import AgentRun
+
+            async with async_session_factory() as save_db:
                 assistant_message = Message(
                     conversation_id=conversation_id,
                     role="assistant",
                     content=full_response,
                 )
                 save_db.add(assistant_message)
+
+                agent_run = AgentRun(
+                    user_id=user_uuid,
+                    conversation_id=conversation_id,
+                    agent_type=conv_agent_type or "general",
+                    status="success",
+                    prompt_tokens=max(1, len(body.content.split())),
+                    completion_tokens=max(1, len(full_response.split())),
+                )
+                save_db.add(agent_run)
                 await save_db.commit()
 
             yield {"event": "done", "data": json.dumps({"success": True})}

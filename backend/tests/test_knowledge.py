@@ -1,7 +1,9 @@
 import pytest
+import pytest_asyncio
 from httpx import AsyncClient
+import agents.rag.retriever
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def auth_headers(client: AsyncClient):
     await client.post(
         "/api/v1/auth/register",
@@ -14,7 +16,7 @@ async def auth_headers(client: AsyncClient):
     token = resp.json()["access_token"]
     return {"Authorization": f"Bearer {token}"}
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def project_id(client: AsyncClient, auth_headers):
     resp = await client.post(
         "/api/v1/projects/",
@@ -83,7 +85,7 @@ async def test_delete_document(client: AsyncClient, auth_headers, project_id, mo
     doc_id = upload_resp.json()["id"]
     
     # Mock chromadb deletion
-    mocker.patch("agents.rag.retriever.delete_documents")
+    mocker.patch("agents.rag.retriever.delete_document_vectors")
     
     delete_resp = await client.delete(
         f"/api/v1/knowledge/documents/{doc_id}",

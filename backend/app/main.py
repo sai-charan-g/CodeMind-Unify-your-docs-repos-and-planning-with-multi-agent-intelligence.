@@ -5,8 +5,18 @@ Creates and configures the main FastAPI application with all routers,
 middleware, CORS, rate limiting, and exception handlers.
 """
 
+import sys
+from pathlib import Path
 from contextlib import asynccontextmanager
 from collections.abc import AsyncGenerator
+
+# Ensure project root and backend dir are in sys.path so top-level modules (e.g. agents) can be imported
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

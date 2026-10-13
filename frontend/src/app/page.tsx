@@ -28,7 +28,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Hero */}
-      <header className="relative">
+      <header className="relative min-h-[85vh] flex flex-col">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[var(--accent)] opacity-[0.04] rounded-full blur-[120px]" />
         </div>
@@ -50,7 +50,7 @@ export default function LandingPage() {
           </div>
         </nav>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-20 pb-32">
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-20 pb-24 flex-1 flex flex-col items-center justify-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface-1)] border border-[var(--border)] text-sm text-[var(--muted)] mb-6">
               <Sparkles className="w-4 h-4 text-[var(--accent)]" />

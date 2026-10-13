@@ -40,6 +40,7 @@ async def get_project(project_id: uuid.UUID, current_user: User = Depends(get_cu
 
 
 @router.put("/{project_id}", response_model=ProjectResponse)
+@router.patch("/{project_id}", response_model=ProjectResponse)
 async def update_project(project_id: uuid.UUID, body: UpdateProjectRequest, current_user: User = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Project).where(Project.id == project_id, Project.user_id == current_user.id))
     project = result.scalar_one_or_none()

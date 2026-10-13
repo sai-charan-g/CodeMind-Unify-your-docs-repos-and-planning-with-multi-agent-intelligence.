@@ -23,6 +23,7 @@ from app.core.security import (
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.auth import (
+    ChangePasswordRequest,
     LoginRequest,
     RefreshTokenRequest,
     RegisterRequest,
@@ -100,6 +101,21 @@ async def refresh_token(body: RefreshTokenRequest):
 async def get_profile(current_user: User = Depends(get_current_user)):
     """Get the current authenticated user's profile."""
     return current_user
+
+
+@router.post("/change-password", status_code=200)
+async def change_password(
+    body: ChangePasswordRequest,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """Update password for the authenticated user."""
+    if not current_user.password_hash or not verify_password(body.current_password, current_user.password_hash):
+        raise AuthenticationError("Incorrect current password")
+
+    current_user.password_hash = hash_password(body.new_password)
+    await db.commit()
+    return {"message": "Password changed successfully"}
 
 
 # --- GitHub OAuth ---

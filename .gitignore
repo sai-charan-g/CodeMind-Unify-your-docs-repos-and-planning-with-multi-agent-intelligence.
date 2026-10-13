@@ -4,8 +4,13 @@
 
 # Environment
 .env
-.env.local
-.env.production
+.env.*
+!.env.example
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
 
 # Python
 __pycache__/

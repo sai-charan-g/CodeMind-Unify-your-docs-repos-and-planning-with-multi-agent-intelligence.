@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/auth-store";
 import { useUIStore } from "@/store/ui-store";
@@ -12,7 +12,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const { sidebarOpen } = useUIStore();
   const router = useRouter();
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     if (!isAuthenticated) {
       router.push("/login");
       return;
@@ -20,7 +23,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     fetchUser();
   }, [isAuthenticated, router, fetchUser]);
 
-  if (!isAuthenticated) return null;
+  if (!mounted || !isAuthenticated) return null;
 
   return (
     <div className="flex min-h-screen">

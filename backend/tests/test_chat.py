@@ -1,8 +1,10 @@
 import json
 import pytest
+import pytest_asyncio
 from httpx import AsyncClient
+import agents.core.graph
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def auth_headers(client: AsyncClient):
     await client.post(
         "/api/v1/auth/register",

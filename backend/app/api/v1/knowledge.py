@@ -9,7 +9,7 @@ import os
 import uuid
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, UploadFile, File
+from fastapi import APIRouter, Depends, UploadFile, File, Form
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -20,6 +20,7 @@ from app.db.session import get_db
 from app.models.knowledge import KnowledgeDocument
 from app.models.user import User
 from app.schemas.knowledge import DocumentDetailResponse, DocumentResponse
+from agents.rag.chunker import process_document
 
 router = APIRouter(prefix="/knowledge", tags=["Knowledge Base"])
 
@@ -29,10 +30,10 @@ UPLOAD_DIR = Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 
-@router.post("/documents/upload", response_model=DocumentResponse, status_code=202)
+@router.post("/documents/upload", response_model=DocumentResponse, status_code=201)
 async def upload_document(
     file: UploadFile = File(...),
-    project_id: uuid.UUID | None = None,
+    project_id: uuid.UUID | None = Form(None),
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db),
 ):
@@ -73,7 +74,6 @@ async def upload_document(
 
     # Trigger async processing (chunking + embedding)
     # In V1, we process inline. In V2, this moves to Celery.
-    from agents.rag.chunker import process_document
     import asyncio
     asyncio.create_task(process_document(str(document.id), str(file_path), ext))
 

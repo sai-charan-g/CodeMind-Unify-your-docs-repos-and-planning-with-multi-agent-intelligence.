@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import api, { API_BASE } from "@/lib/api";
@@ -27,7 +28,7 @@ interface ChatMessage {
   content: string;
 }
 
-export default function ChatPage() {
+function ChatContent() {
   const queryClient = useQueryClient();
   const [selectedConv, setSelectedConv] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -36,6 +37,14 @@ export default function ChatPage() {
   const [streamingContent, setStreamingContent] = useState("");
   const [currentAgent, setCurrentAgent] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const promptParam = searchParams.get("prompt");
+    if (promptParam) {
+      setInput(promptParam);
+    }
+  }, [searchParams]);
 
   const { data: conversations = [] } = useQuery<Conversation[]>({
     queryKey: ["conversations"],
@@ -329,5 +338,13 @@ export default function ChatPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-[var(--muted)]">Loading chat workspace...</div>}>
+      <ChatContent />
+    </Suspense>
   );
 }

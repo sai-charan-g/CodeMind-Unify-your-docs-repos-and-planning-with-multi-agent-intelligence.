@@ -10,11 +10,13 @@ async def process_document(document_id: str, file_path: str, file_ext: str) -> N
     from app.db.session import async_session_factory
     from app.models.knowledge import KnowledgeDocument, KnowledgeChunk
 
+    import uuid
     async with async_session_factory() as db:
         try:
             # Update status to processing
             from sqlalchemy import select
-            result = await db.execute(select(KnowledgeDocument).where(KnowledgeDocument.id == document_id))
+            doc_uuid = uuid.UUID(document_id) if isinstance(document_id, str) else document_id
+            result = await db.execute(select(KnowledgeDocument).where(KnowledgeDocument.id == doc_uuid))
             doc = result.scalar_one_or_none()
             if not doc:
                 return
